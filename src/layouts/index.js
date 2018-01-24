@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
+import './amazeui.min.css'
 import './index.css'
 
 const TemplateWrapper = ({ children }) => (
