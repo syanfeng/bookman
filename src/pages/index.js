@@ -1,13 +1,16 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import {
+    Button
+} from 'amazeui-react'
 
 const IndexPage = () => (
   <div>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    {'sunyanfeng'}
     <Link to="/page-2/">Go to page 2</Link>
+    <Button className="am-btn am-btn-primary" >button</Button>
   </div>
 )
 
