@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Header'
 
 const AboutPage = () => (
-    <div >
-        About
+    <div>  
+        <Header currPage="about" />
+        <div className="am-container">
+            <h1>About Me</h1>
+        </div>
     </div>
 )
 
