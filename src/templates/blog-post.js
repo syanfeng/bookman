@@ -1,21 +1,40 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import Header from '../components/Header'
 
 // import '../css/blog-post.css'; // make it pretty!
 
 export default function Template({
   data // this prop will be injected by the GraphQL query we'll write in a bit
 }) {
-  const { markdownRemark: post } = data; // data.markdownRemark holds our post data
-  return (
-    <div className="blog-post-container">
-      <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
-      <div className="blog-post">
-        <h1>{post.frontmatter.title}</h1>
-        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
-    </div>
-  );
+    const { markdownRemark: post } = data; // data.markdownRemark holds our post data
+    return (
+        <div className="page-post-detail">
+            <Header />
+            <div className="main-inner">
+                <div className="blog-post-container am-container">
+                    <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
+                    <div className="blog-post">
+                        <header className="post-header">
+                            <h2 className="post-title">{post.frontmatter.title}</h2>
+                        </header>
+                        <div className="post-meta">
+                            <span className="post-time">
+                                <span className="post-meta-item-text">发表于</span>
+                                <time title="创建于" datetime="">{post.frontmatter.date}</time>
+                            </span>
+                            <span className="post-meta-divider">|</span>
+                            <span className="post-category">
+                                <span className="post-meta-item-text">分类于</span>
+                                <time title="创建于" datetime="">{post.frontmatter.date}</time>
+                            </span>
+                        </div>
+                        <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: post.html }} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export const pageQuery = graphql`

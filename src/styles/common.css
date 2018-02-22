@@ -8,7 +8,7 @@ a, ins {
     text-decoration: none;
 }
 .am-container, .am-g-fixed {
-    max-width: 1000px;
+    max-width: 800px;
 }
 
 ul, li {
@@ -53,7 +53,7 @@ ul, li {
     margin: 0;
     padding: 0 10px;
     float: left;
-    font-size: 1.8rem;
+    font-size: 22px;
     height: 50px;
     line-height: 50px;
 }
@@ -67,6 +67,27 @@ ul, li {
 }
 .am-collapse {
     display: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 14px;
+    color: #fff;
+    background: #222;
+    border: 2px solid #222;
+    text-decoration: none;
+    border-radius: 0;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.btn:hover, .post-button .btn:hover {
+    border-color: #222;
+    color: #222;
+    background: #fff;
 }
 
 @media only screen and (min-width: 641px){

@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
-// import './amazeui.min.css'
 import '../styles/index.css'
 import '../styles/common.css'
 import '../styles/nav.css'
 import '../styles/header.css'
+import '../styles/footer.css'
+import '../styles/article.css'
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -29,6 +30,14 @@ const TemplateWrapper = ({ children }) => (
     </Helmet>
     <div>
       {children()}
+      <footer className="footer">
+        <div className="footer-inner">
+            <div className="copyright">
+                <span>&copy;2018</span>
+                <span className="auther">孙验沣</span>
+            </div>
+        </div>
+      </footer>
     </div>
   </div>
 )

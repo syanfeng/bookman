@@ -1,7 +1,7 @@
 ---
-path: "/hello-world"
+path: "/test"
 date: "2017-07-12T17:12:33.962Z"
-title: "基于wepy框架开发微信小程序NavBar组件"
+title: "test"
 ---
 
 最近学习微信小程序开发，比较了一下小程序原生开发方式和wepy框架，

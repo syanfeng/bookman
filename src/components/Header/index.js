@@ -16,20 +16,20 @@ const Header = (props) => {
             </h1>
             <div className="am-collapse am-topbar-collapse">
               <Nav pills className="am-topbar-nav">
-                  <NavItem className={classnames({
-                          'am-active': currPage == 'index'
-                      })}>
-                      <Link  to="/">首页</Link>
-                  </NavItem>
-                  <NavItem className={classnames({
-                          'am-active': currPage == 'page-2'
-                      })}>
-                      <Link  to="/page-2">Page2</Link>
+                    <NavItem className={classnames({
+                            'am-active': currPage == 'index'
+                        })}>
+                        <Link  to="/">首页</Link>
                     </NavItem>
-                  <NavItem className={classnames({
-                          'am-active': currPage == 'about'
-                      })}>
-                      <Link  to="/about">About</Link>
+                    <NavItem className={classnames({
+                            'am-active': currPage == 'page-2'
+                        })}>
+                        <Link  to="/page-2">音乐</Link>
+                    </NavItem>
+                    <NavItem className={classnames({
+                            'am-active': currPage == 'about'
+                        })}>
+                        <Link  to="/about">个人简介</Link>
                     </NavItem>
               </Nav>
             </div>
