@@ -42,21 +42,21 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                             });
                         });
 
-                    let categorys = [];
-                    _.each(posts, edge => {
-                        if (_.get(edge, 'node.frontmatter.category')) {
-                          categorys.push(edge.node.frontmatter.category);
-                        }
-                    });
-                    categorys.forEach(category => {
-                        createPage({
-                            path: `/category/${category}/`,
-                            component: categoryTemplate,
-                            context: {
-                                category,
-                            },
-                        });
-                    });
+                    // let categorys = [];
+                    // _.each(posts, edge => {
+                    //     if (_.get(edge, 'node.frontmatter.category')) {
+                    //       categorys.push(edge.node.frontmatter.category);
+                    //     }
+                    // });
+                    // categorys.forEach(category => {
+                    //     createPage({
+                    //         path: `/category/${category}/`,
+                    //         component: categoryTemplate,
+                    //         context: {
+                    //             category,
+                    //         },
+                    //     });
+                    // });
                 })
         );
     })
