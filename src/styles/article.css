@@ -84,6 +84,11 @@
     margin-bottom: 60px;
 }
 
+.page-post-detail .blog-post li {
+    margin-left: 50px;
+    list-style-type: disc;
+}
+
 .blog-post-content p {
     margin: 1.5rem 0;
 }
