@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/Header'
+
+// import 'antd/dist/antd.css';
 import '../styles/index.css'
 import '../styles/common.css'
 import '../styles/nav.css'
 import '../styles/header.css'
 import '../styles/footer.css'
 import '../styles/article.css'
+import "prismjs/themes/prism-solarizedlight.css";
+
 
 const TemplateWrapper = ({ children }) => (
   <div>

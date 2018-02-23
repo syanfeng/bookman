@@ -1,22 +1,68 @@
 ---
-path: "/hello-world"
-date: "2017-07-12T17:12:33.962Z"
-title: "基于wepy框架开发微信小程序NavBar组件"
+path: "/javascript-typeof"
+date: "2018-02-12T20:22:10.962Z"
+title: "前端面试：typeof判断对象的潜在陷阱"
+category: "javascript"
 ---
 
-最近学习微信小程序开发，比较了一下小程序原生开发方式和wepy框架，
-决定还是基于wepy开发，熟悉了wepy的基本框架后，感觉还是挺方便的，
-wepy支持组件化方式抽象组件，在开发中碰到需要使用类似于Android中TabBar的控件，
-Google搜索了一下有不少基于小程序实现的，但没有基于wepy封装的，于是顺手将其封装一下。
+今天我们来讲一个比较简单但是会比较常遇到的问题。
 
-# 标题一
+__问：使用 typeof bar === "object" 来确定 bar 是否是对象的潜在陷阱是什么？如何避免这个陷阱？__
 
-最近学习微信小程序开发，比较了一下小程序原生开发方式和wepy框架， 决定还是基于wepy开发，熟悉了wepy的基本框架后，感觉还是挺方便的， wepy支持组件化方式抽象组件，在开发中碰到需要使用类似于Android中TabBar的控件， Google搜索了一下有不少基于小程序实现的，但没有基于wepy封装的，于是顺手将其封装一下。
+尽管 `typeof bar === "object"` 是检查 `bar` 是否对象的可靠方法，令人惊讶的是在JavaScript中 `null` 也被认为是对象！
 
-## 二级标题
+因此，令大多数开发人员惊讶的是，下面的代码将输出 `true` 控制台：
+```javascript
+var bar = null;
+console.log(typeof bar === "object");
+// logs true!
+```
 
-### 三级标题
+只要清楚这一点，同时检查 `bar` 是否为 `null`，就可以很容易地避免问题：
+```javascript
+console.log(
+    (bar !== null) 
+    && 
+    (typeof bar === "object")
+);  
+// logs false
+```
 
-最近学习微信小程序开发，比较了一下小程序原生开发方式和wepy框架， 决定还是基于wepy开发，熟悉了wepy的基本框架后，感觉还是挺方便的， wepy支持组件化方式抽象组件，在开发中碰到需要使用类似于Android中TabBar的控件， Google搜索了一下有不少基于小程序实现的，但没有基于wepy封装的，于是顺手将其封装一下。
+要答全问题，还有其他两件事情值得注意：
 
-最近学习微信小程序开发，比较了一下小程序原生开发方式和wepy框架， 决定还是基于wepy开发，熟悉了wepy的基本框架后，感觉还是挺方便的， wepy支持组件化方式抽象组件，在开发中碰到需要使用类似于Android中TabBar的控件， Google搜索了一下有不少基于小程序实现的，但没有基于wepy封装的，于是顺手将其封装一下。
+首先，上述解决方案将返回 `false`，当 `bar` 是一个函数的时候。在大多数情况下，这是期望行为，但当你也想对函数返回 `true` 的话，你可以修改上面的解决方案为：
+
+```javascript
+console.log(
+    (bar !== null) 
+    && 
+    ((typeof bar === "object") 
+    || 
+    (typeof bar === "function"))
+);
+```
+
+第二，上述解决方案将返回 `true`，当 `bar` 是一个数组（例如，当 `var bar = []`;）的时候。
+
+在大多数情况下，这是期望行为，因为数组是真正的对象，但当你也想对数组返回 false 时，你可以修改上面的解决方案为：
+
+```javascript
+console.log(
+    (bar !== null) 
+    && 
+    (typeof bar === "object") 
+    && 
+    (toString.call(bar) !== "[object Array]")
+);
+```
+
+或者，如果你使用jQuery的话：
+
+```javascript
+console.log(
+    (bar !== null) 
+    && 
+    (typeof bar === "object") 
+    && (! $.isArray(bar))
+);
+```

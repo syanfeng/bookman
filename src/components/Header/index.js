@@ -4,7 +4,6 @@ import { Topbar, CollapsibleNav, Nav, NavItem } from "amazeui-react";
 import classnames from 'classnames'
 
 const Header = (props) => {
-    console.log(props)
     let currPage = props.currPage;
     return (
         <header className="am-topbar am-topbar-inverse" >
@@ -22,14 +21,19 @@ const Header = (props) => {
                         <Link  to="/">首页</Link>
                     </NavItem>
                     <NavItem className={classnames({
-                            'am-active': currPage == 'page-2'
+                            'am-active': currPage == 'javascript'
                         })}>
-                        <Link  to="/page-2">音乐</Link>
+                        <Link to="/category/javascript">JavaScript</Link>
                     </NavItem>
                     <NavItem className={classnames({
-                            'am-active': currPage == 'about'
+                            'am-active': currPage == 'css'
                         })}>
-                        <Link  to="/about">个人简介</Link>
+                        <Link to="/category/css">CSS</Link>
+                    </NavItem>
+                    <NavItem className={classnames({
+                            'am-active': currPage == 'zhexue1'
+                        })}>
+                        <Link  to="/zhexue1">走出编程</Link>
                     </NavItem>
               </Nav>
             </div>

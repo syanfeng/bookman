@@ -17,6 +17,12 @@ ul, li {
     list-style: none;
 }
 
+blockquote {
+    margin: 0;
+    padding-left: 10px;
+    border-left: 3px solid #dbdbdb;
+}
+
 .am-container {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;

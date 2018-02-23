@@ -1,15 +1,19 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
 import Helmet from 'react-helmet';
 import Header from '../components/Header'
+import Link from "gatsby-link";
 
-export default function Index({
-    data
+// import '../css/blog-post.css'; // make it pretty!
+
+export default function Template({
+    pathContext,
+    data // this prop will be injected by the GraphQL query we'll write in a bit
 }) {
-    const { edges: posts } = data.allMarkdownRemark;
+    const {category} = pathContext;
+    const { edges:posts, totalCount } = data.allMarkdownRemark;
     return (
         <div>
-            <Header currPage="index"/>
+            <Header currPage={category}/>
             <div className="main-inner">
                 <div className="am-container blog-posts posts-expand">
                     {posts
@@ -51,20 +55,25 @@ export default function Index({
 }
 
 export const pageQuery = graphql`
- query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          excerpt(pruneLength: 250)
-          id
-          frontmatter {
-            title
-            date(formatString: "YYYY-MM-DD")
-            path
-            category
-          }
+    query BlogPostByCategory($category: String!) {
+        allMarkdownRemark(
+            limit: 2000
+            sort: { fields: [frontmatter___date], order: DESC }
+            filter: { frontmatter: { category: { eq: $category } } }
+        ){
+            totalCount
+            edges {
+                node {
+                    excerpt(pruneLength: 250)
+                    id
+                    frontmatter {
+                        date(formatString: "YYYY-MM-DD")
+                        path
+                        title
+                        category
+                    }
+                }
+            }
         }
-      }
     }
- }
 `;

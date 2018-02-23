@@ -1,15 +1,13 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
- // You can delete this file if you're not using it
 const path = require("path");
+const _ = require('lodash')
+
 exports.createPages = ({ boundActionCreators, graphql }) => {
     const { createPage } = boundActionCreators;
     return new Promise((resolve, reject) => {
+
         const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
+        const categoryTemplate = path.resolve(`src/templates/category.js`);
+
         resolve(
             graphql(
                 `{
@@ -26,6 +24,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                         date
                         path
                         title
+                        category
                       }
                     }
                   }
@@ -34,15 +33,30 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
                     if (result.errors) {
                         return Promise.reject(result.errors);
                     }
-        
-                    result.data.allMarkdownRemark.edges
-                        .forEach(({ node }) => {
+                    const posts = result.data.allMarkdownRemark.edges;
+                    posts.forEach(({ node }) => {
                             createPage({
                                 path: node.frontmatter.path,
                                 component: blogPostTemplate,
                                 context: {} // additional data can be passed via context
                             });
                         });
+
+                    let categorys = [];
+                    _.each(posts, edge => {
+                        if (_.get(edge, 'node.frontmatter.category')) {
+                          categorys.push(edge.node.frontmatter.category);
+                        }
+                    });
+                    categorys.forEach(category => {
+                        createPage({
+                            path: `/category/${category}/`,
+                            component: categoryTemplate,
+                            context: {
+                                category,
+                            },
+                        });
+                    });
                 })
         );
     })
