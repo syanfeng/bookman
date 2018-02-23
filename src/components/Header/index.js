@@ -31,9 +31,9 @@ const Header = (props) => {
                         <Link to="/category/css">CSS</Link>
                     </NavItem>
                     <NavItem className={classnames({
-                            'am-active': currPage == 'zhexue1'
+                            'am-active': currPage == '哲学'
                         })}>
-                        <Link  to="/zhexue1">走出编程</Link>
+                        <Link  to="/zhexue">走出编程</Link>
                     </NavItem>
               </Nav>
             </div>
