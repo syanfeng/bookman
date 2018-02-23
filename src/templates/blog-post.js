@@ -14,7 +14,7 @@ export default function Template({
             <Header currPage={post.frontmatter.category}/>
             <div className="main-inner">
                 <div className="blog-post-container am-container">
-                    <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />
+                    <Helmet title={`孙验沣 - ${post.frontmatter.title}`} />
                     <div className="blog-post">
                         <header className="post-header">
                             <h2 className="post-title">{post.frontmatter.title}</h2>

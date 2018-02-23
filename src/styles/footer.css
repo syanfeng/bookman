@@ -12,3 +12,9 @@
     margin: 0 auto;
     text-align: left;
 }
+
+@media (max-width: 767px) {
+    .footer-inner {
+        width: auto;
+    }
+}

@@ -77,11 +77,6 @@
 }
 
 /* detail */
-.main-inner {
-    margin: 0 auto;
-    width: 700px;
-    margin-top: 80px;
-}
 .page-post-detail .post-title, .page-post-detail .post-meta {
     text-align: center;
 }

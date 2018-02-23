@@ -1,6 +1,21 @@
 .am-topbar-inverse {
     background: #323436;
 }
-.am-topbar-nav {
-    margin-left: 50px;
+
+.site-nav-toggle {
+    display: none;
+    position: absolute;
+    float: right;
+    top: 0px;
+    right: 10px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 28px;
+    color: #fff;
+}
+
+@media (max-width: 767px){
+    .site-nav-toggle {
+        display: block;
+    }
 }

@@ -3,11 +3,6 @@
     padding: 0;
     list-style: none;
 }
-@media only screen and (min-width: 641px){
-    .am-topbar-nav {
-        float: left;
-    }
-}
 
 .am-nav>li, .am-nav>li>a {
     position: relative;
@@ -54,8 +49,12 @@ v>li.am-active>a, .am-nav>li.am-active>a:focus, .am-nav>li.am-active>a:hover {
     background-color: #454648;
     color: #fff;
 }
-
-@media only screen and (min-width: 641px){
+@media only screen and (min-width: 767px){
+    .am-topbar-nav {
+        float: left;
+    }
+}
+@media only screen and (min-width: 767px){
 
     .am-topbar-nav>li>a {
         position: relative;
@@ -66,5 +65,10 @@ v>li.am-active>a, .am-nav>li.am-active>a:focus, .am-nav>li.am-active>a:hover {
         border-radius: 0;
         color: #0e90d2;
         background: 0 0;
+    }
+}
+@media (max-width: 767px) {
+    .am-nav-pills>li {
+        float: none;
     }
 }

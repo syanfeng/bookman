@@ -71,9 +71,6 @@ blockquote {
     clear: both;
     -webkit-overflow-scrolling: touch;
 }
-.am-collapse {
-    display: none;
-}
 
 .btn {
     display: inline-block;
@@ -96,7 +93,17 @@ blockquote {
     background: #fff;
 }
 
-@media only screen and (min-width: 641px){
+.main-inner {
+    margin: 0 auto;
+    width: 700px;
+    margin-top: 80px;
+}
+
+.isShow {
+    display: block!important;
+}
+
+@media only screen and (min-width: 767px){
     .am-container {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
@@ -115,5 +122,21 @@ blockquote {
         height: auto!important;
         padding: 0;
         overflow: visible!important;
+    }
+    .am-topbar-nav {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-inner {
+        width: auto;
+    }
+    .am-collapse {
+        display: none;
+        overflow: hidden;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
     }
 }
