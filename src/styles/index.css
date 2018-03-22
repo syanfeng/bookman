@@ -522,6 +522,9 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background-color: #002b36;
+}
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

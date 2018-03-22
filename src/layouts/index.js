@@ -6,13 +6,14 @@ import Header from '../components/Header'
 import { BackTop } from 'antd';
 
 import 'antd/dist/antd.css';
+import "prismjs/themes/prism-solarizedlight.css";
 import '../styles/index.css'
 import '../styles/common.css'
 import '../styles/nav.css'
 import '../styles/header.css'
 import '../styles/footer.css'
 import '../styles/article.css'
-import "prismjs/themes/prism-solarizedlight.css";
+
 
 
 const TemplateWrapper = ({ children }) => (
@@ -33,8 +34,8 @@ const TemplateWrapper = ({ children }) => (
         <footer className="footer">
             <div className="footer-inner">
                 <div className="copyright">
-                    <span>&copy;2018</span>
-                    <span className="auther">孙验沣</span>
+                    <span>Copyright &copy;2018</span>
+                    <span className="auther"> 孙验沣</span>
                 </div>
             </div>
         </footer>

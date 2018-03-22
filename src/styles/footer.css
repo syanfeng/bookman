@@ -10,7 +10,7 @@
     box-sizing: border-box;
     width: 700px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
 }
 
 @media (max-width: 767px) {
